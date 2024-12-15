@@ -1,4 +1,5 @@
 import './ColorPicker.css';
+import PanelColorElegido from '/src/components/PanelColorElegido/PanelColorElegido';
 import SelectorLineaColor from '/src/components/SelectorLineaColor/SelectorLineaColor.jsx';
 import SelectorLineaTransparencia from '/src/components/SelectorLineaTransparencia/SelectorLineaTransparencia.jsx';
 import SelectorColor from '/src/components/SelectorColor/SelectorColor';
@@ -13,12 +14,9 @@ export default function ColorPicker() {
 
   return (
     <>
-      <div className="contenedor-color-elegido">
-        <div className="color-elegido" style={{ backgroundColor: colorSeleccionado }}></div>
-        <p className="codigo-color-elegido">{colorSeleccionado}</p>
-      </div>
+      <PanelColorElegido colorSeleccionado={colorSeleccionado} />
       <div className="contenedor-color-picker">
-        <SelectorColor color={colorSeleccionado}/>
+        <SelectorColor color={colorSeleccionado} />
         <SelectorLineaTransparencia colorSeleccionado={colorSeleccionado} />
         <SelectorLineaColor onColorChange={handleColorChange}/>
       </div>
