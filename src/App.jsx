@@ -5,12 +5,12 @@ import { useState } from "react";
 
 
 export default function App() {
-  const [color, setColor] = useState("#ff0000");
+  const [colorSeleccionado, setcolorSeleccionado] = useState("#ff0000");
   const [ancho, setAncho] = useState(70);
   const [isDragging, setIsDragging] = useState(false);
 
-  const handleColorChange = (event) => {
-    setColor(event.target.value);
+  const handleColorChange = (color) => {
+    setcolorSeleccionado(color);
   };
 
   const handleMouseMove = (event) => {
@@ -35,7 +35,7 @@ export default function App() {
   return (
     <>
       <main style={{width: `${ancho}%`}}>
-        <Pixel color={color} />
+        <Pixel color={colorSeleccionado} />
       </main>
       <div 
         className="separador"
@@ -46,7 +46,7 @@ export default function App() {
       ></div>
       <aside>
         <h2>Colores</h2>
-        <ColorPicker color={color} changeColor={handleColorChange}/>
+        <ColorPicker colorSeleccionado={colorSeleccionado} onChangeColor={handleColorChange}/>
       </aside>
     </>
   )
