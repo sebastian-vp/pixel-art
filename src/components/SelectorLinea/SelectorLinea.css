@@ -1,0 +1,38 @@
+.colores {
+  position: relative;
+  background: linear-gradient(180deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  width: 30px;
+  height: 200px;
+  border-radius: 3px;
+}
+
+.transparencia {
+  position: relative;
+  background-image: url('/src/assets/images/fondo-transparente.webp'), linear-gradient(180deg, #ff0000, #ff000000);
+  background-blend-mode: overlay; /* estudiar como funciona esta propiedad */
+  background-size: cover;
+  width: 30px;
+  height: 200px;
+  border-radius: 3px;
+}
+
+.contenedor-selector-linea {
+  position: relative;
+  top: 100%;
+  left: -10%;
+}
+
+.selector-linea {
+  position: absolute;
+  width: 120%;
+  height: 10px;
+  background-color: #fff;
+  border: 1px solid #1f1f1f;
+  border-radius: 2px;
+  top: -5px;
+  cursor: pointer;
+}
+
+.grab {
+  cursor: grab;
+}

@@ -1,0 +1,28 @@
+.color-picker {
+  position: relative;
+  background: linear-gradient(-90deg, #f00, #fff), linear-gradient(0deg, #000, #fff);
+  background-blend-mode: multiply;
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+}
+
+
+.contenedor-selector-circular {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+}
+
+.selector-circular {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 3px solid #1f1f1f;
+  border-radius: 50%;
+  cursor: pointer;
+  top: -7px;
+  left: -7px;
+}
+
