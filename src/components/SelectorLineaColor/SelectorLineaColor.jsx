@@ -1,9 +1,8 @@
-import './SelectorLinea.css';
+import './SelectorLineaColor.css';
 import { useState } from "react";
 
-export default function SelectorLinea({ clase, colorSeleccionado, onColorChange }) {
+export default function SelectorLinea({ onColorChange }) {
   const [porcentajeAltura, setPorcentajeAltura] = useState(0);
-  const [color, setColor] = useState("#ff0000");
 
   const rgbToHex = (rgb) => {
     return "#" + rgb.map((color) => {
@@ -45,21 +44,13 @@ export default function SelectorLinea({ clase, colorSeleccionado, onColorChange 
     const newColor = interpolarColor(porcentaje);
 
     setPorcentajeAltura(porcentaje);
-    setColor(newColor);
-    
-    if(onColorChange) {
-      onColorChange(newColor);
-    }
+    onColorChange(newColor);
   };
 
   return (
-    <div className={clase} 
-      onClick={handleClick}
-      style={{
-        backgroundImage: `url('/src/assets/images/fondo-transparente.webp'), linear-gradient(180deg, ${colorSeleccionado}, #ff000000)`
-      }}>
-      <div className="contenedor-selector-linea" style={{top: `${porcentajeAltura}%`}}>
-        <div className="selector-linea"></div>
+    <div className="colores" onClick={handleClick}>
+      <div className="contenedor-selector-linea-color" style={{top: `${porcentajeAltura}%`}}>
+        <div className="selector-linea-color"></div>
       </div>
     </div>
   );

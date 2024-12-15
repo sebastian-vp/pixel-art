@@ -1,20 +1,21 @@
 import './ColorPicker.css';
-import SelectorLinea from '/src/components/SelectorLinea/SelectorLinea.jsx';
+import SelectorLineaColor from '/src/components/SelectorLineaColor/SelectorLineaColor.jsx';
+import SelectorLineaTransparencia from '/src/components/SelectorLineaTransparencia/SelectorLineaTransparencia.jsx';
 import SelectorColor from '/src/components/SelectorColor/SelectorColor';
 import { useState } from "react";
 
-export default function ColorPicker({ color, changeColor }) {
-  const [selectedColor, setSelectedColor] = useState("#ff0000");
+export default function ColorPicker() {
+  const [colorSeleccionado, setcolorSeleccionado] = useState("#ff0000");
 
   const handleColorChange = (color) => {
-    setSelectedColor(color);
+    setcolorSeleccionado(color);
   };
 
   return (
     <div className="contenedor-color-picker">
-      <SelectorColor color={selectedColor}/>
-      <SelectorLinea clase="transparencia" colorSeleccionado={selectedColor} />
-      <SelectorLinea clase="colores"  onColorChange={handleColorChange}/>
+      <SelectorColor color={colorSeleccionado}/>
+      <SelectorLineaTransparencia colorSeleccionado={colorSeleccionado} />
+      <SelectorLineaColor onColorChange={handleColorChange}/>
     </div>
   );
 }

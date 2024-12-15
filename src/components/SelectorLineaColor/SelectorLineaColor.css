@@ -6,23 +6,13 @@
   border-radius: 3px;
 }
 
-.transparencia {
-  position: relative;
-  background-image: url('/src/assets/images/fondo-transparente.webp'), linear-gradient(180deg, #ff0000, #ff000000);
-  background-blend-mode: overlay; /* estudiar como funciona esta propiedad */
-  background-size: cover;
-  width: 30px;
-  height: 200px;
-  border-radius: 3px;
-}
-
-.contenedor-selector-linea {
+.contenedor-selector-linea-color {
   position: relative;
   top: 100%;
   left: -10%;
 }
 
-.selector-linea {
+.selector-linea-color {
   position: absolute;
   width: 120%;
   height: 10px;
