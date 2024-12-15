@@ -1,9 +1,11 @@
 .contenedor-color-picker {
+  width: 300px;
   display: flex;
   gap: 1rem;
 }
 
 .contenedor-color-elegido {
+  width: 300px;
   display: flex;
   gap: 1rem;
   align-items: center;
