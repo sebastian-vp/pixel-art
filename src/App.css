@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Proxima Soft';
+  src: url('/src/assets/fonts/ProximaSoft-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}

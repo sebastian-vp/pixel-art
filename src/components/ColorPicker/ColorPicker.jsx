@@ -12,10 +12,16 @@ export default function ColorPicker() {
   };
 
   return (
-    <div className="contenedor-color-picker">
-      <SelectorColor color={colorSeleccionado}/>
-      <SelectorLineaTransparencia colorSeleccionado={colorSeleccionado} />
-      <SelectorLineaColor onColorChange={handleColorChange}/>
-    </div>
+    <>
+      <div className="contenedor-color-elegido">
+        <div className="color-elegido" style={{ backgroundColor: colorSeleccionado }}></div>
+        <p className="codigo-color-elegido">{colorSeleccionado}</p>
+      </div>
+      <div className="contenedor-color-picker">
+        <SelectorColor color={colorSeleccionado}/>
+        <SelectorLineaTransparencia colorSeleccionado={colorSeleccionado} />
+        <SelectorLineaColor onColorChange={handleColorChange}/>
+      </div>
+    </>
   );
 }

@@ -2,3 +2,26 @@
   display: flex;
   gap: 1rem;
 }
+
+.contenedor-color-elegido {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.color-elegido {
+  width: 200px;
+  height: 2rem;
+  border: 1px solid #333;
+}
+
+.codigo-color-elegido {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  text-transform: uppercase;
+  font-family: 'Proxima Soft', sans-serif;
+  color: #333;
+}
