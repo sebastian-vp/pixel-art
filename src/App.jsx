@@ -6,11 +6,16 @@ import { useState } from "react";
 
 export default function App() {
   const [colorSeleccionado, setcolorSeleccionado] = useState("#ff0000");
+  const [variacionColor, setVariacionColor] = useState("#ffffff");
   const [ancho, setAncho] = useState(70);
   const [isDragging, setIsDragging] = useState(false);
 
   const handleColorChange = (color) => {
     setcolorSeleccionado(color);
+  };
+
+  const handleColorVariationChange = (color) => {
+    setVariacionColor(color);
   };
 
   const handleMouseMove = (event) => {
@@ -35,7 +40,7 @@ export default function App() {
   return (
     <>
       <main style={{width: `${ancho}%`}}>
-        <Pixel color={colorSeleccionado} />
+        <Pixel color={variacionColor} />
       </main>
       <div 
         className="separador"
@@ -46,7 +51,12 @@ export default function App() {
       ></div>
       <aside>
         <h2>Colores</h2>
-        <ColorPicker colorSeleccionado={colorSeleccionado} onChangeColor={handleColorChange}/>
+        <ColorPicker 
+          colorSeleccionado={colorSeleccionado} 
+          variacionColor={variacionColor} 
+          onChangeColor={handleColorChange}
+          onChangeVariationColor={handleColorVariationChange}
+        />
       </aside>
     </>
   )
