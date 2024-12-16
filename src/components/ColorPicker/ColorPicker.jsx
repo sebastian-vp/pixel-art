@@ -11,7 +11,7 @@ export default function ColorPicker({ colorSeleccionado, variacionColor, transpa
       <PanelColorElegido colorSeleccionado={variacionColor} transparencia={transparencia} />
       <div className="contenedor-color-picker">
         <SelectorColor color={colorSeleccionado} onChangeVariationColor={onChangeVariationColor} />
-        <SelectorLineaTransparencia colorSeleccionado={variacionColor} onChangeVariationColor={onChangeVariationColor} onChangeTransparencia={onChangeTransparencia} />
+        <SelectorLineaTransparencia colorSeleccionado={variacionColor.slice(0,7)} onChangeTransparencia={onChangeTransparencia} />
         <SelectorLineaColor onColorChange={onChangeColor} />
       </div>
     </>
