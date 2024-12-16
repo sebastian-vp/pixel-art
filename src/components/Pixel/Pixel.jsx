@@ -5,7 +5,11 @@ export default function Pixel({ color }) {
   const [colorPixel, setColorPixel] = useState("#ffffff");
 
   const handlePixelClick = () => {
-    setColorPixel(color);
+    if(colorPixel === color) {
+      setColorPixel("#ffffff");
+    } else {
+      setColorPixel(color);
+    }
   }
 
   return (
