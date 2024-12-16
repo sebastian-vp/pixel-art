@@ -1,37 +1,28 @@
 import './SelectorLineaColor.css';
+import { rgbToHex, interpolarCanal } from '/src/utils/colores.js';
 import { useState } from "react";
 
 export default function SelectorLinea({ onColorChange }) {
   const [porcentajeAltura, setPorcentajeAltura] = useState(0);
   const [isDragging, setIsDragging] = useState(false); 
 
-  const rgbToHex = (rgb) => {
-    return "#" + rgb.map((color) => {
-      const hex = color.toString(16);
-      return hex.length === 1 ? "0" + hex : hex
-    }).join("");
-  };
-  
-  const interpolarColor = (altura) => {
+  const calcularColor = (altura) => {
     const colors = [
       [255, 0, 0],    
       [255, 255, 0],  
       [0, 255, 0],    
       [0, 255, 255],  
       [0, 0, 255],    
-      [255, 0, 255],  
+      [255, 0, 255],    
       [255, 0, 0],    
     ];
   
     const segmento = 100 / (colors.length - 1);
     const index = Math.floor(altura / segmento);
     const progress = (altura % segmento) / segmento;
-    
-    const interpolate = (start, end, factor) =>
-      Math.round(start + (end - start) * factor);
   
     const rgb = colors[index].map((start, i) =>
-      interpolate(start, colors[index < colors.length - 1 ? index + 1: index][i], progress)
+      interpolarCanal(start, colors[index < colors.length - 1 ? index + 1: index][i], progress)
     );
   
     return rgbToHex(rgb);
@@ -50,7 +41,7 @@ export default function SelectorLinea({ onColorChange }) {
     setIsDragging(true);
     const element = document.querySelector('.transparencia'); 
     const porcentaje = calcularPorcentaje(event, element);
-    const newColor = interpolarColor(porcentaje);
+    const newColor = calcularColor(porcentaje);
 
     setPorcentajeAltura(porcentaje);
     onColorChange(newColor);
@@ -61,7 +52,7 @@ export default function SelectorLinea({ onColorChange }) {
     const element = document.querySelector('.transparencia'); 
 
     const porcentaje = calcularPorcentaje(event, element);
-    const newColor = interpolarColor(porcentaje);
+    const newColor = calcularColor(porcentaje);
 
     setPorcentajeAltura(porcentaje);
     onColorChange(newColor);
