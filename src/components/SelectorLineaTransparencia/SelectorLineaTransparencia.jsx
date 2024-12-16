@@ -6,7 +6,7 @@ export default function SelectorLinea({ colorSeleccionado, onChangeTransparencia
   const [isDragging, setIsDragging] = useState(false); 
 
   const estilo = {
-    backgroundImage: `url('/src/assets/images/fondo-transparente.webp'), linear-gradient(180deg, ${colorSeleccionado}, transparent)`
+    backgroundImage: `linear-gradient(180deg, ${colorSeleccionado}, transparent), url('/src/assets/images/fondo-transparente.webp')`
   };
 
   const calcularPorcentaje = (event, element) => {

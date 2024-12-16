@@ -3,7 +3,7 @@ import { multiplicarColores, interpolarColorHex } from "/src/utils/colores.js";
 import { useState } from "react";
 
 export default function SelectorColor({ color, onChangeVariationColor }) {
-  const [coordenadaX, setCoordenadaX] = useState(0);
+  const [coordenadaX, setCoordenadaX] = useState(100);
   const [coordenadaY, setCoordenadaY] = useState(0);
   const [isDragging, setIsDragging] = useState(false); 
 

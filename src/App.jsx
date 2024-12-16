@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function App() {
   const [colorSeleccionado, setcolorSeleccionado] = useState("#ff0000");
-  const [variacionColor, setVariacionColor] = useState("#ffffff");
+  const [variacionColor, setVariacionColor] = useState("#ff0000");
   const [transparencia, setTransparencia] = useState(100);
   const [ancho, setAncho] = useState(70);
   const [isDragging, setIsDragging] = useState(false);
