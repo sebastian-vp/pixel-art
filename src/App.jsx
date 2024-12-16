@@ -7,8 +7,13 @@ import { useState } from "react";
 export default function App() {
   const [colorSeleccionado, setcolorSeleccionado] = useState("#ff0000");
   const [variacionColor, setVariacionColor] = useState("#ffffff");
+  const [transparencia, setTransparencia] = useState(100);
   const [ancho, setAncho] = useState(70);
   const [isDragging, setIsDragging] = useState(false);
+
+  const onChangeTransparencia = (porcentaje) => {
+    setTransparencia(Math.round(porcentaje));
+  }
 
   const handleColorChange = (color) => {
     setcolorSeleccionado(color);
@@ -40,7 +45,7 @@ export default function App() {
   return (
     <>
       <main style={{width: `${ancho}%`}}>
-        <Pixel color={variacionColor} />
+        <Pixel color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} />
       </main>
       <div 
         className="separador"
@@ -53,9 +58,11 @@ export default function App() {
         <h2>Colores</h2>
         <ColorPicker 
           colorSeleccionado={colorSeleccionado} 
-          variacionColor={variacionColor} 
+          variacionColor={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} 
+          transparencia={transparencia}
           onChangeColor={handleColorChange}
           onChangeVariationColor={handleColorVariationChange}
+          onChangeTransparencia={onChangeTransparencia}
         />
       </aside>
     </>

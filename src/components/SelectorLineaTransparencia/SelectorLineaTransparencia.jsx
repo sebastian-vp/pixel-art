@@ -1,7 +1,7 @@
 import './SelectorLineaTransparencia.css';
 import { useState } from "react";
 
-export default function SelectorLinea({ colorSeleccionado }) {
+export default function SelectorLinea({ colorSeleccionado, onChangeTransparencia }) {
   const [porcentajeAltura, setPorcentajeAltura] = useState(0);
   const [isDragging, setIsDragging] = useState(false); 
 
@@ -21,8 +21,10 @@ export default function SelectorLinea({ colorSeleccionado }) {
   const handleMouseDown = (event) => {
     setIsDragging(true);
     const element = document.querySelector('.transparencia'); 
+
     const porcentaje = calcularPorcentaje(event, element);
     setPorcentajeAltura(porcentaje);
+    onChangeTransparencia(100 - porcentaje);
   };
   
   const handleMouseMove = (event) => {
@@ -31,6 +33,7 @@ export default function SelectorLinea({ colorSeleccionado }) {
 
     const porcentaje = calcularPorcentaje(event, element);
     setPorcentajeAltura(porcentaje);
+    onChangeTransparencia(100 - porcentaje);
   };
   
   const handleMouseUp = () => {
