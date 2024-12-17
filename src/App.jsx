@@ -10,6 +10,7 @@ export default function App() {
   const [transparencia, setTransparencia] = useState(100);
   const [ancho, setAncho] = useState(70);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMouseDownForPaint, setIsMouseDownForPaint] = useState(false);
 
   const onChangeTransparencia = (porcentaje) => {
     setTransparencia(Math.round(porcentaje));
@@ -42,6 +43,14 @@ export default function App() {
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
+  const handleMouseDownForPaint = () => {
+    setIsMouseDownForPaint(true);
+  };
+
+  const handleMouseUpForPaint = () => {
+    setIsMouseDownForPaint(false);
+  };
+
   return (
     <>
       <main style={{width: `${ancho}%`}}>
@@ -54,6 +63,9 @@ export default function App() {
               key={index} 
               color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} 
               indiceColorFondo={index}
+              onMouseDownForPaint={handleMouseDownForPaint}
+              onMouseUpForPaint={handleMouseUpForPaint}
+              isMouseDownForPaint={isMouseDownForPaint}
             />
           ))}
         </div>

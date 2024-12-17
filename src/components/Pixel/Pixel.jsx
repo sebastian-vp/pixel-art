@@ -1,7 +1,7 @@
 import './Pixel.css';
 import { useState } from "react";
 
-export default function Pixel({ color, indiceColorFondo }) {
+export default function Pixel({ color, indiceColorFondo, onMouseDownForPaint , onMouseUpForPaint, isMouseDownForPaint }) {
   const [colorPixel, setColorPixel] = useState(indiceColorFondo % 2 === 0 ? "#ffffff" : "#d9d9d9");
 
   const handlePixelClick = () => {
@@ -10,15 +10,25 @@ export default function Pixel({ color, indiceColorFondo }) {
     } else {
       setColorPixel(color);
     }
+
+    onMouseDownForPaint();
+  }
+
+  const handleMouseMoveForPaint = () => {
+    if(isMouseDownForPaint) {
+      setColorPixel(color);
+    }
   }
 
   return (
     <span className="pixel" 
-                style={{
-                  backgroundColor: `${colorPixel}`
-                }}
-                onClick={handlePixelClick}>
-
+      style={{
+        backgroundColor: `${colorPixel}`
+      }}
+      onMouseDown={handlePixelClick}
+      onMouseMove={handleMouseMoveForPaint}
+      onMouseUp={onMouseUpForPaint}
+    >
     </span>
   );
 } 
