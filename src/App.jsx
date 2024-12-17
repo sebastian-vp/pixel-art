@@ -49,9 +49,12 @@ export default function App() {
           <h1 className="titulo-lienzo">Pixel Art</h1>
         </header>
         <div className="lienzo">
-          <Pixel color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} />
-          {Array(255).fill().map((_, index) => (
-            <Pixel key={index} color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} />
+          {Array(225).fill().map((_, index) => (
+            <Pixel 
+              key={index} 
+              color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} 
+              indiceColorFondo={index}
+            />
           ))}
         </div>
       </main>
