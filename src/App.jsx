@@ -45,7 +45,15 @@ export default function App() {
   return (
     <>
       <main style={{width: `${ancho}%`}}>
-        <Pixel color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} />
+        <header className="header-lienzo">
+          <h1 className="titulo-lienzo">Pixel Art</h1>
+        </header>
+        <div className="lienzo">
+          <Pixel color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} />
+          {Array(255).fill().map((_, index) => (
+            <Pixel key={index} color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} />
+          ))}
+        </div>
       </main>
       <div 
         className="separador"
