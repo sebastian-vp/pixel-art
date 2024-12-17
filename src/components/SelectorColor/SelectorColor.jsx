@@ -1,6 +1,6 @@
 import './SelectorColor.css';
 import { multiplicarColores, interpolarColorHex } from "/src/utils/colores.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SelectorColor({ color, onChangeVariationColor }) {
   const [coordenadaX, setCoordenadaX] = useState(100);
@@ -59,6 +59,10 @@ export default function SelectorColor({ color, onChangeVariationColor }) {
   const handleMouseUp = () => {
     setIsDragging(false);
   };
+
+  useEffect(() => {
+    onChangeVariationColor(color);
+  }, [color]);
 
   return (
     <div 
