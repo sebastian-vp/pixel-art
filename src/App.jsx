@@ -11,6 +11,7 @@ export default function App() {
   const [ancho, setAncho] = useState(70);
   const [isDragging, setIsDragging] = useState(false);
   const [isMouseDownForPaint, setIsMouseDownForPaint] = useState(false);
+  const [buttonPressed, setButtonPressed] = useState(null);
 
   const onChangeTransparencia = (porcentaje) => {
     setTransparencia(Math.round(porcentaje));
@@ -43,8 +44,9 @@ export default function App() {
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
-  const handleMouseDownForPaint = () => {
+  const handleMouseDownForPaint = (buttonPressed) => {
     setIsMouseDownForPaint(true);
+    setButtonPressed(buttonPressed);
   };
 
   const handleMouseUpForPaint = () => {
@@ -66,6 +68,7 @@ export default function App() {
               onMouseDownForPaint={handleMouseDownForPaint}
               onMouseUpForPaint={handleMouseUpForPaint}
               isMouseDownForPaint={isMouseDownForPaint}
+              buttonPressed={buttonPressed}
             />
           ))}
         </div>

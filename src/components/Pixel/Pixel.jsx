@@ -1,23 +1,36 @@
 import './Pixel.css';
 import { useState } from "react";
 
-export default function Pixel({ color, indiceColorFondo, onMouseDownForPaint , onMouseUpForPaint, isMouseDownForPaint }) {
+export default function Pixel({ color, indiceColorFondo, onMouseDownForPaint , onMouseUpForPaint, isMouseDownForPaint, buttonPressed }) {
   const [colorPixel, setColorPixel] = useState(indiceColorFondo % 2 === 0 ? "#ffffff" : "#d9d9d9");
 
-  const handlePixelClick = () => {
-    if(colorPixel === color) {
-      setColorPixel(indiceColorFondo % 2 === 0 ? "#ffffff" : "#d9d9d9");
-    } else {
+  const handlePixelClick = (event) => {
+    if(event.button === 0) {
       setColorPixel(color);
+      onMouseDownForPaint(0);
+    } else if(event.button === 2) {
+      setColorPixel(indiceColorFondo % 2 === 0 ? "#ffffff" : "#d9d9d9");
+      onMouseDownForPaint(2);
+    } else {
+      return;
     }
-
-    onMouseDownForPaint();
   }
 
   const handleMouseMoveForPaint = () => {
     if(isMouseDownForPaint) {
-      setColorPixel(color);
+      if(buttonPressed === 0) {
+        setColorPixel(color);
+      } else if(buttonPressed === 2) {
+        setColorPixel(indiceColorFondo % 2 === 0 ? "#ffffff" : "#d9d9d9");
+      } else {
+        return;
+      }
+      console.log(buttonPressed);
     }
+  }
+
+  const handleContextMenu = (event) => {
+    event.preventDefault();
   }
 
   return (
@@ -28,6 +41,7 @@ export default function Pixel({ color, indiceColorFondo, onMouseDownForPaint , o
       onMouseDown={handlePixelClick}
       onMouseMove={handleMouseMoveForPaint}
       onMouseUp={onMouseUpForPaint}
+      onContextMenu={handleContextMenu}
     >
     </span>
   );
