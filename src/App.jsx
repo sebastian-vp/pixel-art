@@ -3,7 +3,7 @@ import Pixel from './components/Pixel/Pixel.jsx'
 import ColorPicker from './components/ColorPicker/ColorPicker.jsx'
 import { useState } from "react";
 
-const size = [15, 5];
+const size = [15, 15];
 
 
 export default function App() {
@@ -61,7 +61,13 @@ export default function App() {
         <header className="App-main-header">
           <h1 className="App-main-header-h1">Pixel Art</h1>
         </header>
-        <div className="App-main-div">
+        <div 
+          className="App-main-div"
+          style={{
+            gridTemplateColumns: `repeat(${size[0]}, 30px)`,
+            gridTemplateRows: `repeat(${size[1]}, 30px)`
+          }}
+        >
           {Array(size[0] * size[1]).fill().map((_, index) => (
             <Pixel 
               key={index} 

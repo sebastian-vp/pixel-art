@@ -16,8 +16,6 @@
 .App-main-div {
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(15, 30px);
-  grid-template-rows: repeat(5, 30px);
   place-content: center;
 }
 
