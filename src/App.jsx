@@ -3,6 +3,8 @@ import Pixel from './components/Pixel/Pixel.jsx'
 import ColorPicker from './components/ColorPicker/ColorPicker.jsx'
 import { useState } from "react";
 
+const size = [15, 5];
+
 
 export default function App() {
   const [colorSeleccionado, setcolorSeleccionado] = useState("#ff0000");
@@ -60,11 +62,15 @@ export default function App() {
           <h1 className="App-main-header-h1">Pixel Art</h1>
         </header>
         <div className="App-main-div">
-          {Array(225).fill().map((_, index) => (
+          {Array(size[0] * size[1]).fill().map((_, index) => (
             <Pixel 
               key={index} 
               color={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} 
-              indiceColorFondo={index}
+              indiceColorFondo={
+                size[0] % 2 === 0
+                ? index + Math.floor(index / size[0])
+                : index
+              }
               onMouseDownForPaint={handleMouseDownForPaint}
               onMouseUpForPaint={handleMouseUpForPaint}
               isMouseDownForPaint={isMouseDownForPaint}
