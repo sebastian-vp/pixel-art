@@ -34,7 +34,7 @@ export default function SelectorColor({ color, onChangeVariationColor }) {
 
   const handleMouseDown = (event) => {
     setIsDragging(true);
-    const element = document.querySelector('.color-picker'); 
+    const element = document.querySelector('.SelectorColor'); 
     
     const porcentaje = calcularCoordenadas(event, element);
     setCoordenadaX(porcentaje[0]);
@@ -46,7 +46,7 @@ export default function SelectorColor({ color, onChangeVariationColor }) {
   
   const handleMouseMove = (event) => {
     if (!isDragging) return;
-    const element = document.querySelector('.color-picker'); 
+    const element = document.querySelector('.SelectorColor'); 
 
     const porcentaje = calcularCoordenadas(event, element);
     setCoordenadaX(porcentaje[0]);
@@ -66,15 +66,22 @@ export default function SelectorColor({ color, onChangeVariationColor }) {
 
   return (
     <div 
-      className="color-picker"
+      className="SelectorColor"
       style={estilo}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp} 
     >
-      <div className="contenedor-selector-circular" style={{top: `${coordenadaY}%`, left: `${coordenadaX}%`}}>
-        <div className="selector-circular"></div>
+      <div 
+        className="SelectorColor-div" 
+        style={{
+          top: `${coordenadaY}%`, 
+          left: `${coordenadaX}%`,
+          cursor: isDragging ? 'grab' : 'pointer'
+        }}
+      >
+        <div className="SelectorColor-div-div"></div>
       </div>
     </div>
   );

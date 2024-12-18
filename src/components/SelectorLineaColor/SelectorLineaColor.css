@@ -1,4 +1,4 @@
-.colores {
+.SelectorLineaColor {
   position: relative;
   background: linear-gradient(180deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
   width: 30px;
@@ -6,13 +6,13 @@
   border-radius: 3px;
 }
 
-.contenedor-selector-linea-color {
+.SelectorLineaColor-div {
   position: relative;
   top: 100%;
   left: -10%;
 }
 
-.selector-linea-color {
+.SelectorLineaColor-div-div {
   position: absolute;
   width: 120%;
   height: 10px;
@@ -20,9 +20,4 @@
   border: 1px solid #1f1f1f;
   border-radius: 2px;
   top: -5px;
-  cursor: pointer;
-}
-
-.grab {
-  cursor: grab;
 }

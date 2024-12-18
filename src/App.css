@@ -1,16 +1,4 @@
-@font-face {
-  font-family: 'Proxima Soft';
-  src: url('/src/assets/fonts/ProximaSoft-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-#root {
-  display: flex;
-  height: 100vh;
-}
-
-main {
+.App-main {
   max-width: 75%;
   min-width: 20%;
   height: 100%;
@@ -19,13 +7,13 @@ main {
   background-color: #f6f6f6;
 }
 
-.titulo-lienzo {
+.App-main-header-h1 {
   margin: 0;
   text-align: center;
   font-size: 1.5rem;
 }
 
-.lienzo {
+.App-main-div {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(15, 30px);
@@ -33,7 +21,7 @@ main {
   place-content: center;
 }
 
-aside {
+.App-aside {
   background-color: #f6f6f6;
   flex-grow: 1;
   height: 100%;

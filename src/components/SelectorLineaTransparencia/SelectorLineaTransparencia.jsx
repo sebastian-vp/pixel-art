@@ -20,7 +20,7 @@ export default function SelectorLinea({ colorSeleccionado, onChangeTransparencia
 
   const handleMouseDown = (event) => {
     setIsDragging(true);
-    const element = document.querySelector('.transparencia'); 
+    const element = document.querySelector('.SelectorLineaTransparencia'); 
 
     const porcentaje = calcularPorcentaje(event, element);
     setPorcentajeAltura(porcentaje);
@@ -29,7 +29,7 @@ export default function SelectorLinea({ colorSeleccionado, onChangeTransparencia
   
   const handleMouseMove = (event) => {
     if (!isDragging) return;
-    const element = document.querySelector('.transparencia'); 
+    const element = document.querySelector('.SelectorLineaTransparencia'); 
 
     const porcentaje = calcularPorcentaje(event, element);
     setPorcentajeAltura(porcentaje);
@@ -42,7 +42,7 @@ export default function SelectorLinea({ colorSeleccionado, onChangeTransparencia
 
   return (
     <div 
-      className="transparencia" 
+      className="SelectorLineaTransparencia" 
       style={estilo} 
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -50,13 +50,13 @@ export default function SelectorLinea({ colorSeleccionado, onChangeTransparencia
       onMouseLeave={handleMouseUp} 
     >
       <div 
-        className="contenedor-selector-linea-transparencia" 
+        className="SelectorLineaTransparencia-div" 
         style={{ 
           top: `${porcentajeAltura}%`,
           cursor: isDragging ? 'grab' : 'pointer'
         }}
       >
-        <div className="selector-linea-transparencia"></div>
+        <div className="SelectorLineaTransparencia-div-div"></div>
       </div>
     </div>
   );

@@ -25,7 +25,6 @@ export default function Pixel({ color, indiceColorFondo, onMouseDownForPaint , o
       } else {
         return;
       }
-      console.log(buttonPressed);
     }
   }
 
@@ -34,7 +33,7 @@ export default function Pixel({ color, indiceColorFondo, onMouseDownForPaint , o
   }
 
   return (
-    <span className="pixel" 
+    <span className="Pixel" 
       style={{
         backgroundColor: `${colorPixel}`
       }}

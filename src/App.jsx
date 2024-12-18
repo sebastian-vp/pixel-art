@@ -55,11 +55,11 @@ export default function App() {
 
   return (
     <>
-      <main style={{width: `${ancho}%`}}>
-        <header className="header-lienzo">
-          <h1 className="titulo-lienzo">Pixel Art</h1>
+      <main className="App-main" style={{width: `${ancho}%`}}>
+        <header className="App-main-header">
+          <h1 className="App-main-header-h1">Pixel Art</h1>
         </header>
-        <div className="lienzo">
+        <div className="App-main-div">
           {Array(225).fill().map((_, index) => (
             <Pixel 
               key={index} 
@@ -79,9 +79,10 @@ export default function App() {
         style={{
           cursor: "col-resize"
         }}
-      ></div>
-      <aside>
-        <h2>Colores</h2>
+      >
+      </div>
+      <aside className="App-aside">
+        <h2 className="App-aside-h2">Colores</h2>
         <ColorPicker 
           colorSeleccionado={colorSeleccionado} 
           variacionColor={variacionColor + Math.round(transparencia * 255 / 100).toString(16).padStart(2, '0')} 

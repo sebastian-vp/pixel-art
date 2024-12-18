@@ -1,7 +1,19 @@
+@font-face {
+  font-family: 'Proxima Soft';
+  src: url('/src/assets/fonts/ProximaSoft-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+}
+
+#root {
+  display: flex;
+  height: 100vh;
 }

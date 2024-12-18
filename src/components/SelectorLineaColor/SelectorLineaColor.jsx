@@ -39,7 +39,7 @@ export default function SelectorLinea({ onColorChange }) {
 
   const handleMouseDown = (event) => {
     setIsDragging(true);
-    const element = document.querySelector('.transparencia'); 
+    const element = document.querySelector('.SelectorLineaColor'); 
     const porcentaje = calcularPorcentaje(event, element);
     const newColor = calcularColor(porcentaje);
 
@@ -49,7 +49,7 @@ export default function SelectorLinea({ onColorChange }) {
   
   const handleMouseMove = (event) => {
     if (!isDragging) return;
-    const element = document.querySelector('.transparencia'); 
+    const element = document.querySelector('.SelectorLineaColor'); 
 
     const porcentaje = calcularPorcentaje(event, element);
     const newColor = calcularColor(porcentaje);
@@ -64,14 +64,20 @@ export default function SelectorLinea({ onColorChange }) {
 
   return (
     <div 
-      className="colores" 
+      className="SelectorLineaColor" 
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp} 
     >
-      <div className="contenedor-selector-linea-color" style={{top: `${porcentajeAltura}%`}}>
-        <div className="selector-linea-color"></div>
+      <div 
+        className="SelectorLineaColor-div" 
+        style={{
+          top: `${porcentajeAltura}%`,
+          cursor: isDragging ? 'grab' : 'pointer'
+        }}
+      >
+        <div className="SelectorLineaColor-div-div"></div>
       </div>
     </div>
   );
