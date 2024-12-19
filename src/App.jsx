@@ -1,6 +1,8 @@
 import './App.css'
 import Pixel from './components/Pixel/Pixel.jsx'
 import ColorPicker from './components/ColorPicker/ColorPicker.jsx'
+import Input from './components/Input/Input.jsx';
+
 import { useState } from "react";
 
 const size = [15, 15];
@@ -59,7 +61,9 @@ export default function App() {
     <>
       <main className="App-main" style={{width: `${ancho}%`}}>
         <header className="App-main-header">
-          <h1 className="App-main-header-h1">Pixel Art</h1>
+          <h1 className="App-main-header-h1">
+            <Input text="Pixel Art"/>
+          </h1>
         </header>
         <div 
           className="App-main-div"

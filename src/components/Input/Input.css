@@ -1,0 +1,10 @@
+.Input {
+  display: flex;
+  justify-content: center;
+}
+
+.Input-input {
+  font-family: 'Proxima Soft', sans-serif;
+  font-size: inherit;
+  text-align: center;
+}

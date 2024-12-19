@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function Pixel({ color, indiceColorFondo, onMouseDownForPaint , onMouseUpForPaint, isMouseDownForPaint, buttonPressed }) {
   const [colorPixel, setColorPixel] = useState(indiceColorFondo % 2 === 0 ? "#ffffff" : "#d9d9d9");
-  console.log(indiceColorFondo);
+  
   const handlePixelClick = (event) => {
     if(event.button === 0) {
       setColorPixel(color);
